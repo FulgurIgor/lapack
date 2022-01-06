@@ -54,7 +54,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     env:
-      BUILD_TYPE: Release
+      BUILD_TYPE: Debug
 
     strategy:
       fail-fast: true
@@ -100,7 +100,7 @@ jobs:
       run: |
         ctest -D ExperimentalStart
         ctest -D ExperimentalConfigure
-        ctest -D ExperimentalBuild -j2
+        ctest -D ExperimentalBuild -j2 --verbose
         ctest -D ExperimentalTest --schedule-random -j2 --output-on-failure --timeout 100
         ctest -D ExperimentalSubmit
 
